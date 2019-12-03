@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper
 
-mockid = 1111
+mockid = '1111'
 
 pipeline {
    agent any
