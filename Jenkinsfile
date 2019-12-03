@@ -6,6 +6,7 @@ pipeline {
          steps {
             echo 'Deploy Build to Develpoment Environment'
             echo 'Prepare Environment - Start Mock Services'
+            curl http://bbc.co.uk
       }
       }
       stage('QA') {
