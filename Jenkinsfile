@@ -22,8 +22,7 @@ pipeline {
                echo "Status: ${response.status}"
 
                echo "Mock Service IDs: ${json.result.id}"
-               def Mockid = ${json.result.id}
-               }
+            }
          echo 'Prepare Environment - Start Mock Services'
 //            script {
 //            def patchOrg = """ {}"""
