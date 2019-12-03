@@ -4,27 +4,27 @@ pipeline {
    stages {
       stage('Development') {
          steps {
-            echo 'Hello World'
+            echo 'Deploy Build to Develpoment Environment'
          }
       }
       stage('QA') {
          steps {
-            echo 'Hello World'
+            echo 'Deploy Build to QA Environment'
          }
       }
       stage('UAT') {
          steps {
-            echo 'Hello World'
+            echo 'Deploy Build to UAT Environment'
          }
       }
       stage('Pre Production') {
          steps {
-            echo 'Hello World'
+            echo 'Deploy Build to Pre - Production Environment'
          }
       }
      stage('Production') {
          steps {
-            echo 'Hello World'
+            echo 'Deploy Build to Production Environment'
          }
       }
    }
