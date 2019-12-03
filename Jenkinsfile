@@ -1,7 +1,6 @@
 import groovy.json.JsonSlurper
 
 pipeline {
-
    agent any
    stages {
       stage('Development') {
@@ -21,7 +20,7 @@ pipeline {
                def json = new JsonSlurper().parseText(response.content)
                echo "Status: ${response.status}"
                echo "Mock Service IDs: ${json.result.id}"
-               def mockid = "${json.result.id}"
+               def mockid = ${json.result.id}
             }
          echo 'Prepare Environment - Start Mock Services'
             script {
