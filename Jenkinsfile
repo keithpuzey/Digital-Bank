@@ -7,6 +7,7 @@ pipeline {
             echo 'Deploy Build to Develpoment Environment'
             echo 'Prepare Environment - Start Mock Services'
       }
+      }
       stage('QA') {
          steps {
             echo 'Deploy Build to QA Environment'
