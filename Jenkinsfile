@@ -9,14 +9,7 @@ pipeline {
             echo 'Deploy Build to Develpoment Environment'
             echo 'Prepare Environment - Start Mock Services'
             script {
-               def response = httpRequest accept: '*/*', contentType: 'APPLICATION_JSON', httpMode: 'POST', authentication 'Basic OTVjNTMzYmExZjU4OTBlYTAyN2FmMzAxOjkxM2E4N2IyZDM0YTRiYzNmYTAyNDJjNTMyNTM5ZWVjMjhkZmM1NDg0YjM5MzQ5NGU5NDQ5OWI2YmVkYWEyOWRiNTYwYTAwZA== ', requestBody: '{ "description": "Jenkins Created Mock Service", 
-        "endpointPreference": "HTTPS", 
-        "name": "Jenkins Build ", 
-        "noMatchingRequestPreference": "return404", 
-        "serviceId": 1448, 
-        "thinkTime": 0, 
-        "transactionIds": 12072
-}', url: 'https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks'
+               def response = httpRequest accept: '*/*', contentType: 'APPLICATION_JSON', httpMode: 'POST', authentication 'Basic OTVjNTMzYmExZjU4OTBlYTAyN2FmMzAxOjkxM2E4N2IyZDM0YTRiYzNmYTAyNDJjNTMyNTM5ZWVjMjhkZmM1NDg0YjM5MzQ5NGU5NDQ5OWI2YmVkYWEyOWRiNTYwYTAwZA==', requestBody: '', url: 'https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks'
                def json = new JsonSlurper().parseText(response.content)
 
                echo "Status: ${response.status}"
