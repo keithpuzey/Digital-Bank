@@ -22,7 +22,7 @@ pipeline {
 
                echo "Status: ${response.status}"
 
-               echo "Mock Service DetailsDogs: ${json.message.keySet()}"
+               echo "Mock Service IDs: ${json.result.id}"
       }
          }
       }
