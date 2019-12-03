@@ -5,8 +5,6 @@ pipeline {
       stage('Development') {
          steps {
             echo 'Deploy Build to Develpoment Environment'
-         }
-         {
             echo 'Prepare Environment - Start Mock Services'
          // GET
 def get = new URL("https://httpbin.org/get").openConnection();
