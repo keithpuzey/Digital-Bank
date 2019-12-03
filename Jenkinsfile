@@ -25,7 +25,9 @@ pipeline {
          echo 'Prepare Environment - Start Mock Services'
             script {
                echo "this is the mock id variable $env.MOCKID"
-               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/" + 2339 + "/deploy"
+               env.mockurl =  "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/" + $env.MOCKID + "/deploy"
+               echo "this is the mock id variable $env.mockurl"
+               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: $env.mockurl
                def json = new JsonSlurper().parseText(response.content)
                echo "Status: ${response.status}"
                echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
