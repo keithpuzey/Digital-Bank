@@ -14,6 +14,7 @@ pipeline {
 
                echo "Mock Service DetailsDogs: ${json.message.keySet()}"
       }
+         }
       }
       stage('QA') {
          steps {
