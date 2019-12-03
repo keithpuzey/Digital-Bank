@@ -21,7 +21,7 @@ pipeline {
                echo "Status: ${response.status}"
                echo "Mock Service IDs: ${json.result.id}"
                env.MOCKID = "${json.result.id}"
-               echo "this is the mock id variable env.MOCKID"
+               echo "this is the mock id variable $env.MOCKID"
             }
          echo 'Prepare Environment - Start Mock Services'
             script {
