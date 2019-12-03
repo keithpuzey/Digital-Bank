@@ -6,7 +6,7 @@ pipeline {
          steps {
             echo 'Deploy Build to Develpoment Environment'
             echo 'Prepare Environment - Start Mock Services'
-            sh 'curl http://bbc.co.uk'
+            sh 'curl "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/695" -X PUT -H "accept: application/json;charset=UTF-8" -H "Content-Type: application/json" --user "95c533ba1f5890ea027af301:913a87b2d34a4bc3fa0242c532539eec28dfc5484b393494e94499b6bedaa29db560a00d" -d "{\"thinkTime\": \"100\"}"'
       }
       }
       stage('QA') {
