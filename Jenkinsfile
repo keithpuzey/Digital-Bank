@@ -1,8 +1,7 @@
 import groovy.json.JsonSlurper
 
-mockid = '1111'
-
 pipeline {
+ parameters {string(name: 'mockid', defaultValue: '')  }
    agent any
    stages {
       stage('Development') {
@@ -22,11 +21,11 @@ pipeline {
                def json = new JsonSlurper().parseText(response.content)
                echo "Status: ${response.status}"
                echo "Mock Service IDs: ${json.result.id}"
-               mockid = "${json.result.id}"
+               env.mockid = "${json.result.id}"
             }
          echo 'Prepare Environment - Start Mock Services'
             script {
-               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+$mockid+"/deploy"
+               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+$env.mockid+"/deploy"
                def json = new JsonSlurper().parseText(response.content)
                echo "Status: ${response.status}"
                echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
