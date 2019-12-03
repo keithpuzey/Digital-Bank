@@ -25,7 +25,7 @@ pipeline {
          echo 'Prepare Environment - Start Mock Services'
             script {
 
-             mockurl = $mockid + '/deploy'
+             mockurl = 2370 + '/deploy'
              echo "this is the $mockurl"
              def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: 'https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/'$mockurl
              def json = new JsonSlurper().parseText(response.content)
