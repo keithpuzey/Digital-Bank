@@ -53,7 +53,4 @@ pipeline {
      stage('Production') {
          steps {
             echo 'Deploy Build to Production Environment'
-         }
-      }
-   }
-}
+         }}}}}
