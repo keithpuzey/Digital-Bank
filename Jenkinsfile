@@ -28,7 +28,7 @@ pipeline {
              def json = new JsonSlurper().parseText(response.content)
              echo "Status: ${response.status}"
              echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
-             sleep(time:3,unit:"SECONDS")
+             sleep 3
             }
                     }
           }
