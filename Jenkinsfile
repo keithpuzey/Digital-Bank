@@ -20,13 +20,10 @@ pipeline {
                def json = new JsonSlurper().parseText(response.content)
                echo "Status: ${response.status}"
                echo "Mock Service IDs: ${json.result.id}"
-               int MOCKID = ${json.result.id}
-               string mockid = Integer.toString(MOCKID)
             }
          echo 'Prepare Environment - Start Mock Services'
             script {
-               echo "this is the mock id variable $mockid"
-               mockurl = "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ $mockid + "/deploy"
+               mockurl = "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ ${json.result.id}
                echo "this is the mock id variable $mockurl"
                echo "test"
                //def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: $env.mockurl
