@@ -11,7 +11,7 @@ pipeline {
            def patchOrg = """
                 {"description": "Jenkins Created Mock Service", 
         "endpointPreference": "HTTPS", 
-        "name": "Jenkins Build ", 
+        "name": "Jenkins Build $BUILD_NUMBER", 
         "noMatchingRequestPreference": "return404", 
         "serviceId": 1448, 
         "thinkTime": 0, 
