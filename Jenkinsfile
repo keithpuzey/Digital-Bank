@@ -31,7 +31,7 @@ pipeline {
              echo "Status: ${response.status}"
              echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
             sh 'sleep 600'
- //           }
+            }
                     }
           }
       stage('QA') {
