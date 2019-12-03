@@ -6,9 +6,13 @@ pipeline {
          steps {
             echo 'Deploy Build to Develpoment Environment'
             echo 'Prepare Environment - Start Mock Services'
-            sh "curl -o /dev/null -X POST 'https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks' -H 'Accept-Encoding: gzip, deflate' -H 'Authorization: Basic OTVjNTMzYmExZjU4OTBlYTAyN2FmMzAxOjkxM2E4N2IyZDM0YTRiYzNmYTAyNDJjNTMyNTM5ZWVjMjhkZmM1NDg0YjM5MzQ5NGU5NDQ5OWI2YmVkYWEyOWRiNTYwYTAwZA==' -H 'Cache-Control: no-cache'  -H 'Connection: keep-alive' 
- -H 'Content-Type: application/json' -H 'accept: */*' -d '{ "description": "Jenkins Created Mock Service", "endpointPreference": "HTTPS", "name": "Jenkins Build ", "noMatchingRequestPreference": "return404",   "serviceId": 1448, "thinkTime": 0,  "transactionIds": 12072
-}'"
+            script {
+               def response = httpRequest 'https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks'
+               def json = new JsonSlurper().parseText(response.content)
+
+               echo "Status: ${response.status}"
+
+               echo "Mock Service DetailsDogs: ${json.message.keySet()}"
       }
       }
       stage('QA') {
