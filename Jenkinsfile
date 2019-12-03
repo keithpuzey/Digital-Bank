@@ -9,7 +9,9 @@ pipeline {
             echo 'Deploy Build to Develpoment Environment'
             echo 'Prepare Environment - Start Mock Services'
             script {
-               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: {"description":"Mock Service created from Jenkins"}, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks"
+           def patchOrg = """
+                {"description":"Mock Service created from Jenkins"}"""
+               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
 
                echo "Status: ${response.status}"
