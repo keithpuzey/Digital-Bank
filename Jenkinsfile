@@ -20,13 +20,11 @@ pipeline {
                def json = new JsonSlurper().parseText(response.content)
                echo "Status: ${response.status}"
                echo "Mock Service IDs: ${json.result.id}"
-               mockid = ${json.result.id}
-               echo "$mockid" 
             }
          echo 'Prepare Environment - Start Mock Services'
             script {
             def patchOrg = """ {}"""
-               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+$mockid+"/deploy"
+               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+2325+"/deploy"
                def json = new JsonSlurper().parseText(response.content)
                echo "Status: ${response.status}"
                echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
