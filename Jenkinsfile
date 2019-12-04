@@ -26,7 +26,7 @@ pipeline {
             script {
             def mockid =  ${json.result.id} 
             echo "mockid is $mockid" 
-            def url = "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ ${json.result.id} + "/deploy"
+            // def url = "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ ${json.result.id} + "/deploy"
             echo url
             // def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: 'https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/'+ 2412 + '/deploy'
             // def json = new JsonSlurper().parseText(response.content)
