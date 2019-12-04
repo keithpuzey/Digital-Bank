@@ -20,7 +20,7 @@ pipeline {
                def json = new JsonSlurper().parseText(response.content)
          //      echo "Status: ${response.status}"
                echo "Mock Service IDs: ${json.result.id}"
-               def mockid = new ${json.result.id}
+               def mockid = ${json.result.id}
                echo "mockid is $mockid" 
 
             }
