@@ -18,12 +18,10 @@ pipeline {
         "transactionIds": 12072}"""
                def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
-               
                echo "Status: ${response.status}"
                echo "Mock Service IDs: ${json.result.id}"
                // def mockid = 'id'
                // echo "this is the id =" + mockid
-               
             }
          echo 'Prepare Environment - Start Mock Services'
             //script {
