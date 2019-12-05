@@ -22,8 +22,6 @@ pipeline {
                echo "Mock Service IDs: ${json.result.id}"
                def mockID = ${json.result.id}
                echo "this is the ID value ${mockID}"
-               echo "mockid is $mockid" 
-
             }
          echo 'Prepare Environment - Start Mock Services'
             script {
