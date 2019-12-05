@@ -20,7 +20,7 @@ pipeline {
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
              //  echo "Status: ${response.status}"
-               echo "Mock Service IDs: ${json.result.id}"
+             //  echo "Mock Service IDs: ${json.result.id}"
             }
          echo 'Prepare Environment - Start Mock Services'
             script {
