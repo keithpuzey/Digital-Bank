@@ -19,7 +19,7 @@ pipeline {
                def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                def json2 = new JsonSlurper().parseText(response.content.result.id)
-         //      echo "Status: ${response.status}"
+               echo "Status: ${response.status}"
                echo "Mock Service IDs: ${json.result.id}"
                echo "this is the ID value ${json2}"
             }
