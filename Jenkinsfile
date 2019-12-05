@@ -21,7 +21,7 @@ pipeline {
          //      echo "Status: ${response.status}"
                echo "Mock Service IDs: ${json.result.id}"
                def ID = ${json.result.id}
-               echo "this is the ID valuie $ID"
+               echo "this is the ID valuie ${ID}"
                // echo "mockid is $mockid" 
 
             }
