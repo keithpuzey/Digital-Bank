@@ -36,7 +36,8 @@ pipeline {
             def json = new JsonSlurper().parseText(response.content)
             mockendpoint = json.result.httpsEndpoint
             mockstat = json.result.status
-            sleep(10)
+               { sleep(10)
+               }
             if ( mockstat == 'RUNNING') break
             }
            }  
