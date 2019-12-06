@@ -38,7 +38,7 @@ pipeline {
             if ( mockstat == 'RUNNING') break
             }
            }  
-           echo "Mock Service Jenkins Build " + BUILD_NUMBER + "Started Endpoint details " + mockendpoint 
+           echo "Mock Service Jenkins Build " + BUILD_NUMBER + "  Started -  Endpoint details " + mockendpoint 
            echo "Configuring Digital Banking application with mock service details"
            sleep 30
 		    script {
