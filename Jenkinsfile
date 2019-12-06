@@ -28,7 +28,7 @@ pipeline {
             def json = new JsonSlurper().parseText(response.content)
             // echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
             }
-			script {
+	    script {
             while (true) {
             sleep 20
             def response = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid
@@ -38,7 +38,7 @@ pipeline {
             if ( mockstat == 'RUNNING') break
             }
            }  
-           echo "Mock Service Jenkins Build " + $BUILD_NUMBER + "Started Endpoint details " + mockendpoint 
+           //echo "Mock Service Jenkins Build " + $BUILD_NUMBER + "Started Endpoint details " + mockendpoint 
            echo "Configuring Digital Banking application with mock service details"
            sleep 30
 		    script {
