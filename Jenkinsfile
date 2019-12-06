@@ -48,7 +48,7 @@ pipeline {
                     message: 'Deployment Paused',
                     parameters: [
                             [$class: 'ChoiceParameterDefinition',
-                             choices: ['No','Yes'].join('\n'),
+                             choices: ['Yes','No'].join('\n'),
                              name: 'input',
                              description: 'Do you want to proceed?']
                     ])
