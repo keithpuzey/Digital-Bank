@@ -1,7 +1,5 @@
 import groovy.json.JsonSlurper
-.pipeline-annotated {
-    display: none;
-}
+
 pipeline {
    agent any
    stages {
