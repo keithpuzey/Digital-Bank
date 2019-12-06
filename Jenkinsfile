@@ -44,10 +44,10 @@ pipeline {
            echo "Mock Service Jenkins Build $BUILD_NUMBER Endpoint details " + mockendpoint 
            echo "Configuring Digital Banking application with mock service details"
            sleep 30
-		    script {
-            def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid
-            echo "Deleting Mock Service -- Jenkins Build $BUILD_NUMBER "
-            }
+//		    script {
+//            def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid
+//            echo "Deleting Mock Service -- Jenkins Build $BUILD_NUMBER "
+//            }
             }
          stage('QA') {
          steps {
