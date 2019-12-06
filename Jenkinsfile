@@ -24,7 +24,7 @@ pipeline {
              // echo "Status: ${response.status}"
              // echo "Mock Service IDs: ${json.result.id}"
             }
-         echo 'Prepare Environment - Start Mock Services'
+         echo "Prepare Environment - Start Mock Services - Jenkins Build " + BUILD_NUMBER
             script {
             def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid + "/deploy"
             def json = new JsonSlurper().parseText(response.content)
