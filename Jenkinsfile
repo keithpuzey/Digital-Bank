@@ -32,7 +32,7 @@ pipeline {
             }
 	    script {
             while (true) {
-	    sleep 30
+	    sleep 35
             def response = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
             def json = new JsonSlurper().parseText(response.content)
             mockendpoint = json.result.httpsEndpoint
