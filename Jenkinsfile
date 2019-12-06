@@ -29,7 +29,7 @@ pipeline {
             def json = new JsonSlurper().parseText(response.content)
             echo "Status: ${response.status}"
             echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
-            def mockresponse = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+mockid
+            //def mockresponse = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid
             //def mockjson = new JsonSlurper().parseText(mockresponse.content)
             //echo "Mock Service Details: ${mockjson}"
             }
