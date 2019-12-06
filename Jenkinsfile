@@ -36,7 +36,7 @@ pipeline {
             def json = new JsonSlurper().parseText(response.content)
             mockstat = json.result.status
             echo mockstat
-            if ( mockstat == CONFIGURING) break
+            if ( mockstat == 'RUNNING') break
             }
            }  
             sh 'sleep 60'
