@@ -30,6 +30,7 @@ pipeline {
             // echo "Status: ${response.status}"
             echo "Mock Service Jenkins Build $BUILD_NUMBER Tracking IDs: ${json.result.trackingUrl}"
             }
+            }
             script {
             while (true) {
             sleep 20
