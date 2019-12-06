@@ -19,19 +19,19 @@ pipeline {
                def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
-             //  echo "Status: ${response.status}"
-             //  echo "Mock Service IDs: ${json.result.id}"
+             echo "Status: ${response.status}"
+             echo "Mock Service IDs: ${json.result.id}"
             }
          echo 'Prepare Environment - Start Mock Services'
             script {
             // def url = "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid + "/deploy"
             def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid + "/deploy"
             def json = new JsonSlurper().parseText(response.content)
-           // echo "Status: ${response.status}"
+            echo "Status: ${response.status}"
             echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
             def mockresponse = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid     
-            def mockjson = new JsonSlurper().parseText(mockresponse.content)
-            echo "Mock Service Details: ${mockjson}"
+            //def mockjson = new JsonSlurper().parseText(mockresponse.content)
+            //echo "Mock Service Details: ${mockjson}"
             }
             sh 'sleep 60'
                     }
