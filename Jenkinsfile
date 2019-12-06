@@ -24,11 +24,14 @@ pipeline {
             }
          echo 'Prepare Environment - Start Mock Services'
             script {
-            def url = "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid + "/deploy"
-            def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: url
+            // def url = "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid + "/deploy"
+            def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid + "/deploy"
             def json = new JsonSlurper().parseText(response.content)
            // echo "Status: ${response.status}"
             echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
+            def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid     
+            def mockjson = new JsonSlurper().parseText(response.content)
+            echo "Mock Service Details: ${mockjson}"
             }
             sh 'sleep 60'
                     }
