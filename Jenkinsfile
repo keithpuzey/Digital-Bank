@@ -1,5 +1,7 @@
 import groovy.json.JsonSlurper
 
+workspaceid = 350345
+
 pipeline {
    agent any
    stages {
@@ -16,19 +18,12 @@ pipeline {
         "serviceId": 1448, 
         "thinkTime": 0, 
         "mockServiceTransactions":[{"txnId":12072,"priority":10}]}"""
-               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks"
+               def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
              // echo "Status: ${response.status}"
              // echo "Mock Service IDs: ${json.result.id}"
             }
-          //script {
-          // def patchOrg2 = """
-          //      {"mockServiceTransactions":[{"txnId":12072,"priority":10}]}"""
-          //     def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'PATCH', requestBody: patchOrg2, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/" + mockid
-          //  }
-	 
-		 
          echo 'Prepare Environment - Start Mock Services'
             script {
             def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid + "/deploy"
