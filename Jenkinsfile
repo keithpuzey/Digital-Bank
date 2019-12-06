@@ -24,7 +24,7 @@ pipeline {
             }
           script {
            def patchOrg2 = """
-                {"transactionIds": [12072]}"""
+                {"mockServiceTransactions":[{"txnId":12072,"priority":10}]}"""
                def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'PATCH', requestBody: patchOrg2, url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/" + mockid
             }
 	 
