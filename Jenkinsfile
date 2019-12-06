@@ -45,12 +45,12 @@ pipeline {
            script {
             // Define Variable
              def USER_INPUT = input(
-                    message: 'Deployment Paused - Do you want to proceed? - Yes or No',
+                    message: 'Deployment Paused - Do you want to proceed?',
                     parameters: [
                             [$class: 'ChoiceParameterDefinition',
                              choices: ['no','yes'].join('\n'),
                              name: 'input',
-                             description: 'Menu - select box option']
+                             description: 'Continue Deployment']
                     ])
 
             echo "The answer is: ${USER_INPUT}"
@@ -58,7 +58,8 @@ pipeline {
             if( "${USER_INPUT}" == "yes"){
             echo "Deployment Continuing"
             } else {
-                break
+	    echo "Deployment Cancelled by user input"
+            break
             }
         }
 	   script {
