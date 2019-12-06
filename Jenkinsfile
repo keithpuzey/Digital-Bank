@@ -28,7 +28,6 @@ pipeline {
             def json = new JsonSlurper().parseText(response.content)
             // echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
             }
-	    set +x
 	    script {
             while (true) {
 	    sleep 30
