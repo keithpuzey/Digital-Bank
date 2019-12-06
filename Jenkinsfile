@@ -31,14 +31,14 @@ pipeline {
             echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
             }
             script {
-            while (false) {
+            while (true) {
             def response = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid
             def json = new JsonSlurper().parseText(response.content)
             mockstat = json.result.status
             if ( mockstat == 'RUNNING') break
             }
            }  
-            sh 'sleep 60'
+           // sh 'sleep 60'
                     }
           }
       stage('QA') {
