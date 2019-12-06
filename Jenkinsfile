@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper
 
-workspaceid = 350345
+def workspaceID = 350345
 
 pipeline {
    agent any
