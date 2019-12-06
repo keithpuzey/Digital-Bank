@@ -48,17 +48,21 @@ pipeline {
                     message: 'Deployment Paused - Do you want to proceed?',
                     parameters: [
                             [$class: 'ChoiceParameterDefinition',
-                             choices: ['no','yes'].join('\n'),
+                             choices: ['No','Yes'].join('\n'),
                              name: 'input',
                              description: 'Continue Deployment']
                     ])
 
             echo "The answer is: ${USER_INPUT}"
 
-            if( "${USER_INPUT}" == "yes"){
+            if( "${USER_INPUT}" == "Yes"){
             echo "Deployment Continuing"
             } else {
 	    echo "Deployment Cancelled by user input"
+       	   script {
+            def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
+            echo "Deleting Mock Service Jenkins Build " + BUILD_NUMBER
+            }
             break
             }
         }
