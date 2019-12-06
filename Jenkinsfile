@@ -42,8 +42,26 @@ pipeline {
            }  
            echo "Mock Service Jenkins Build " + BUILD_NUMBER + "  Started -  Endpoint details " + mockendpoint 
            echo "Configuring Digital Banking application with mock service details"
-           sleep 30
-		    script {
+           script {
+            // Define Variable
+             def USER_INPUT = input(
+                    message: 'Deployment Paused - Do you want to proceed? - Yes or No',
+                    parameters: [
+                            [$class: 'ChoiceParameterDefinition',
+                             choices: ['no','yes'].join('\n'),
+                             name: 'input',
+                             description: 'Menu - select box option']
+                    ])
+
+            echo "The answer is: ${USER_INPUT}"
+
+            if( "${USER_INPUT}" == "yes"){
+            echo "Deployment Continuing"
+            } else {
+                break
+            }
+        }
+	   script {
             def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
             echo "Deleting Mock Service Jenkins Build " + BUILD_NUMBER
             }
