@@ -28,9 +28,9 @@ pipeline {
             def json = new JsonSlurper().parseText(response.content)
             // echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
             }
+	    set +x
 	    script {
             while (true) {
-            set +x
 	    sleep 30
             def response = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/350345/service-mocks/"+ mockid
             def json = new JsonSlurper().parseText(response.content)
