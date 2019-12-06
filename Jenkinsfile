@@ -17,7 +17,7 @@ pipeline {
         "noMatchingRequestPreference": "return404", 
         "serviceId": 1448, 
         "thinkTime": 0, 
-        "mockServiceTransactions":[{"txnId":12072,"priority":10}]}"""
+        "mockServiceTransactions":[{"txnId":12072,"priority":10},{"txnId":12073,"priority":10},{"txnId":12074,"priority":10}]}"""
                def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
