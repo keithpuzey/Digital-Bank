@@ -49,8 +49,7 @@ pipeline {
             echo "Deleting Mock Service -- Jenkins Build $BUILD_NUMBER "
             }
             }
-           }
-      stage('QA') {
+         stage('QA') {
          steps {
             echo 'Deploy Build to QA Environment'
          }
@@ -71,3 +70,4 @@ pipeline {
                 }
                         }   
             }
+}
