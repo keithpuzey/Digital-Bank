@@ -2,7 +2,7 @@ import groovy.json.JsonSlurper
 
 def workspaceID = '350345'
 def ServiceID = '1448'
-def MockServiceName = "Jenkins Build $BUILD_NUMBER"
+def MockServiceName = 'Jenkins Build $BUILD_NUMBER'
 def MockServiceTransactions = '1'
 def MockThinkTime = '0'
 
@@ -17,10 +17,10 @@ pipeline {
            def patchOrg = """
                 {"description": "Jenkins Created Mock Service", 
         "endpointPreference": "HTTPS", 
-        "name": $MockServiceName, 
+        "name": "Mock Service", 
         "noMatchingRequestPreference": "return404", 
-        "serviceId": $ServiceID, 
-        "thinkTime": $MockThinkTime, 
+        "serviceId": 1448, 
+        "thinkTime": 0, 
         "mockServiceTransactions":[{"txnId":12072,"priority":10},{"txnId":12073,"priority":10},{"txnId":12074,"priority":10}}]"""
                def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
