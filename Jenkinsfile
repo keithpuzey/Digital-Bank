@@ -2,7 +2,7 @@ import groovy.json.JsonSlurper
 
 def workspaceID = 350345
 def ServiceID = 1448
-def MockServiceName = "Jenkins Build $BUILD_NUMBER"
+def MockServiceName = 'Jenkins Build $BUILD_NUMBER'
 def MockServiceTransactions = ''
 def MockThinkTime = 0
 
@@ -17,7 +17,7 @@ pipeline {
            def patchOrg = """
                 {"description": "Jenkins Created Mock Service", 
         "endpointPreference": "HTTPS", 
-        "name": ${MockServiceName}, 
+        "name": "${MockServiceName}", 
         "noMatchingRequestPreference": "return404", 
         "serviceId": ${ServiceID}, 
         "thinkTime": ${MockThinkTime}, 
