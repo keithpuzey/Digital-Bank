@@ -15,13 +15,13 @@ pipeline {
             echo 'Prepare Environment - Create Mock Services'
             script {
            def patchOrg = """
-                {"description": [{"${MockServiceName}]}"""", 
+                {"description": ${MockServiceName}, 
         "endpointPreference": "HTTPS", 
         "name": "Jenkins Build $BUILD_NUMBER", 
         "noMatchingRequestPreference": "return404", 
         "serviceId": ${ServiceID}, 
         "thinkTime": ${MockThinkTime}, 
-        "mockServiceTransactions":${MockServiceTransactions}
+        "mockServiceTransactions":[{"${MockServiceTransactions}]}""""
                def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
