@@ -15,9 +15,9 @@ pipeline {
             echo 'Prepare Environment - Create Mock Services'
             script {
            def patchOrg = """
-                {"description": ${MockServiceName}, 
+                {"description": "Mock Service created during CI / CD Piepline", 
         "endpointPreference": "HTTPS", 
-        "name": "Jenkins Build $BUILD_NUMBER", 
+        "name": "${MockServiceName}", 
         "noMatchingRequestPreference": "return404", 
         "serviceId": ${ServiceID}, 
         "thinkTime": ${MockThinkTime}, 
