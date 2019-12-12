@@ -9,7 +9,7 @@ pipeline {
    stages {
       stage('Development') {
          steps {
-            echo 'Deploy Build to Develpoment Environment'
+            echo 'Extract Build to Develpoment Environment'
             echo 'Prepare Environment - Create Mock Services'
             script {
            def patchOrg = """
@@ -46,7 +46,7 @@ pipeline {
 	   echo "Deploy Digital Bank Build" + BUILD_NUMBER + "  to Test Environment"
 	   sleep 15
            echo "Configuring Digital Banking application with mock service details"
-           echo "Test Builds Running"
+           echo "Build tests Running"
            sleep 15
            script {
             // Define Variable
@@ -79,6 +79,11 @@ pipeline {
            }
           }
          stage('QA') {
+         steps {
+            echo 'Deploy Build to QA Environment'
+         }
+      }
+	stage('UAT') {
          steps {
             echo 'Deploy Build to QA Environment'
          }
