@@ -44,10 +44,10 @@ pipeline {
            }  
            echo "Mock Service Jenkins Build " + BUILD_NUMBER + "  Started -  Endpoint details " + mockendpoint 
 	   echo "Deploy Digital Bank Build" + BUILD_NUMBER + "  to Test Environment"
-	   sleep 15
+	   sleep 5
            echo "Configuring Digital Banking application with mock service details"
            echo "Build tests Running"
-           sleep 15
+           sleep 5
            script {
             // Define Variable
              def USER_INPUT = input(
