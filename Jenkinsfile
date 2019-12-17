@@ -20,6 +20,9 @@ pipeline {
         "serviceId": ${ServiceID}, 
         "thinkTime": ${MockThinkTime}, 
         "mockServiceTransactions":[{"txnId":12072,"priority":10},{"txnId":12073,"priority":10},{"txnId":12074,"priority":10}]}"""
+	       
+	// Create Mock Service using payload patchOrg
+		    
 	       def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
@@ -28,14 +31,19 @@ pipeline {
             }
          echo "Prepare Environment - Start Mock Services - Jenkins Build " + BUILD_NUMBER
             script {
-            def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid + "/deploy"
+            // Start Mock Service
+		    
+	    def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid + "/deploy"
             def json = new JsonSlurper().parseText(response.content)
             // echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
             }
 	    script {
             while (true) {
 	    sleep 35
-            def response = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
+
+	    // Retrieve Status of Mock Service    
+	    
+	    def response = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
             def json = new JsonSlurper().parseText(response.content)
             mockendpoint = json.result.httpsEndpoint
             mockstat = json.result.status
@@ -66,7 +74,10 @@ pipeline {
             } else {
 	    echo "Deployment Cancelled by user input"
        	   script {
-            def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
+
+	    // Delete Mock Service
+		   
+	    def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
             echo "Deleting Mock Service Jenkins Build " + BUILD_NUMBER
             }
             break
