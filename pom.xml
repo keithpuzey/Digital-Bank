@@ -427,11 +427,9 @@
     	
     	        <!-- local experimental CodeSV build with CloudRepo Annotation -->
         <dependency>
-            <groupId>com.ca.codesv</groupId>
-            <artifactId>codesv-dist-jar</artifactId>
-            <version>0.0.0-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>C:/Users/puzke01/Documents/GitHub/Digital-Bank/CodeSVUpdate/codesv-dist-all-0.0.0-SNAPSHOT.jar</systemPath>
+                <groupId>com.broadcom.codesv</groupId>
+                <artifactId>codesv-dist-jar</artifactId>
+                 <version>2.0.5</version>
         </dependency>
 	</dependencies>
 	
