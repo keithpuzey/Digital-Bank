@@ -75,8 +75,8 @@ pipeline {
             teststat = json.result.status
             if ( teststat == 'ENDED') break
             }
-	    // echo "Test Results :" + testresult
-            if (testresult = '0') {
+	    echo "Test Results :" + testresult
+            if (testresult == 0 ) {
                 echo 'Test Passed'
             } else {
                 echo 'Test Failed'
