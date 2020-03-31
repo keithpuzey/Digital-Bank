@@ -79,7 +79,7 @@ pipeline {
             testresult = json.result.failedThresholds
             teststat = json.result.status
 	    echo "Test Response: ${json}"
-            if ( teststat == 'FINISHED') break
+            if ( teststat == 'ENDED') break
             }
 	   echo "Test Results :" + testresult
            echo "Test Status:" + teststat	  
