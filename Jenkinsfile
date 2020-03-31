@@ -76,8 +76,11 @@ pipeline {
             if ( teststat == 'ENDED') break
             }
 	    echo "Test Results :" + testresult
-	    if testresult = 0 test2 = "PASSED"
-	    if testresult > 0 test2 = "FAILED"
+            if (testresult == '0') {
+                echo 'Test Passed'
+            } else {
+                echo 'Test Failed'
+            }  
            }  
            script {
             // Define Variable
