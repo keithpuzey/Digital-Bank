@@ -87,7 +87,7 @@ pipeline {
            script {
             // Define Variable
              def USER_INPUT = input(
-                    message: 'Deployment Paused    ' + testresult,
+                    message: 'Deployment Paused    ' <br> + testresult,
                     parameters: [
                             [$class: 'ChoiceParameterDefinition',
                              choices: ['Yes','No'].join('\n'),
