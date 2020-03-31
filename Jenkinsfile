@@ -57,7 +57,6 @@ pipeline {
 	   echo "Deploy Digital Bank Build" + BUILD_NUMBER + "  to Test Environment"
 	   sleep 5
            echo "Configuring Digital Banking application with mock service details"
-           echo "Build tests Running"
            script {
 	// Start Blazemeter Test
 	    echo "Start Blazemeter Test"
@@ -87,8 +86,7 @@ pipeline {
            script {
             // Define Variable
              def USER_INPUT = input(
-                    message: 'Deployment Paused '
-		               + testresult,
+                    message: 'Deployment Paused     ' + testresult,
                     parameters: [
                             [$class: 'ChoiceParameterDefinition',
                              choices: ['Yes','No'].join('\n'),
