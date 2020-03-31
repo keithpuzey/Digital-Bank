@@ -64,29 +64,21 @@ pipeline {
 	       def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/tests/7853380/Start"
                def json = new JsonSlurper().parseText(response.content)
                testsessionid = json.result.sessionsId[0]
-             echo "Test Session ID :" + testsessionid
-             echo "Test Response: ${json}"
-            }
-
+	   }
 	    script {
             while (true) {
-	    sleep 35
-
+	    sleep 10
 	    // Check Status of Test    
-	    
 	    def response = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/latest/sessions/"+testsessionid
 	    def json = new JsonSlurper().parseText(response.content)
             testresult = json.result.failedThresholds
             teststat = json.result.status
-	    echo "Test Response: ${json}"
             if ( teststat == 'ENDED') break
             }
-	   echo "Test Results :" + testresult
-           echo "Test Status:" + teststat	  
+	    echo "Test Results :" + testresult
+	    if testresult = 0 test2 = "PASSED"
+	    if testresult > 0 test2 = "FAILED"
            }  
-		 
-		 
-           sleep 5
            script {
             // Define Variable
              def USER_INPUT = input(
