@@ -78,7 +78,8 @@ pipeline {
 	    def json = new JsonSlurper().parseText(response.content)
             testresult = json.result.failedThresholds
             teststat = json.result.status
-            if ( mockstat == 'FINISHED') break
+	    echo "Test Response: ${json}"
+            if ( teststat == 'FINISHED') break
             }
 	   echo "Test Results :" + testresult
            echo "Test Status:" + teststat	  
