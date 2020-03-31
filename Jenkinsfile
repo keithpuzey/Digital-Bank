@@ -3,6 +3,7 @@ import groovy.json.JsonSlurper
 def workspaceID = 350345
 def ServiceID = 1448
 def MockThinkTime = 0
+def BMTestID = 7853380
 
 pipeline {
    agent any
@@ -61,7 +62,7 @@ pipeline {
 	// Start Blazemeter Test
 	    echo "Start Blazemeter Test"
 		   
-	       def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/tests/7853380/Start"
+	       def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/tests/" + BMTestID "/Start"
                def json = new JsonSlurper().parseText(response.content)
                testsessionid = json.result.sessionsId[0]
 	   }
