@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 
-def workspaceID = 350345
-def ServiceID = 1448
+def workspaceID = 348613
+def ServiceID = 1180
 def MockThinkTime = 0
 def BMTestID = 7853380
 
@@ -22,7 +22,7 @@ pipeline {
         "noMatchingRequestPreference": "return404", 
         "serviceId": ${ServiceID}, 
         "thinkTime": ${MockThinkTime}, 
-        "mockServiceTransactions":[{"txnId":12072,"priority":10},{"txnId":12073,"priority":10},{"txnId":12074,"priority":10}]}"""
+        "mockServiceTransactions":[{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
 	       
 	// Create Mock Service using payload patchOrg
 		    
@@ -67,7 +67,7 @@ pipeline {
 	   }
 	    script {
             while (true) {
-	    sleep 30
+	    sleep 35
 	    // Check Status of Test    
 	    def response = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/latest/sessions/"+testsessionid
 	    def json = new JsonSlurper().parseText(response.content)
