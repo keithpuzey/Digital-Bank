@@ -78,9 +78,9 @@ pipeline {
             }
             if (testthreshold == 0 ) {
                 echo 'Test Passed'
-		testresult = "Blazemeter Test Passed   -  <a href=\"https:\/\/a.blazemeter.com\/app\/executive-summary\/index.html?master_id=&masterID#&theme=blazemeter\">Executive Summary</a> and <a href=\"https:\/\/a.blazemeter.com\/app\/#\/accounts\/&BMACCOUNT#\/workspaces\/&BMWORKSPACE#\/projects\/&ProjectID#\/masters\/&MasterID#\/summary\">Detailed Report"'"
+		testresult = "Blazemeter Test Passed"
             } else {
-                echo 'Test Failed  -  <a href=\"https:\/\/a.blazemeter.com\/app\/executive-summary\/index.html?master_id=&masterID#&theme=blazemeter\">Executive Summary</a> and <a href=\"https:\/\/a.blazemeter.com\/app\/#\/accounts\/&BMACCOUNT#\/workspaces\/&BMWORKSPACE#\/projects\/&ProjectID#\/masters\/&MasterID#\/summary\">Detailed Report"'
+                echo 'Test Failed '
 		testresult = "Blazemeter Test Failed"
             }  
            }  
