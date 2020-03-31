@@ -57,6 +57,19 @@ pipeline {
 	   sleep 5
            echo "Configuring Digital Banking application with mock service details"
            echo "Build tests Running"
+           script {
+	// Start Blazemeter Test
+		    
+	       def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://a.blazemeter.com/api/v4/tests/7853380/Start"
+               def json = new JsonSlurper().parseText(response.content)
+               testsessionid = json.result.sessionsId
+             echo "Test Session ID :" + testsessionid
+             // echo "Mock Service IDs: ${json.result.id}"
+            }
+		 
+		 
+		 
+		 
            sleep 5
            script {
             // Define Variable
