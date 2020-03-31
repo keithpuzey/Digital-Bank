@@ -13,7 +13,8 @@ pipeline {
             echo 'Extract Build to Develpoment Environment'
             echo 'Prepare Environment - Create Mock Services'
             script {
-           def patchOrg = """
+	// KeithP Workspace and VISA Payment Service
+	   def patchOrg = """
                 {"description": "Jenkins Created Mock Service", 
 	"harborId":"5c544422c7dc9735767b23ce",
 	"shipId":"5d3ccab3526ad28f53205574",
