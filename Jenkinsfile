@@ -71,21 +71,22 @@ pipeline {
 	    // Check Status of Test    
 	    def response = httpRequest authentication: 'credentialsID', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/latest/sessions/"+testsessionid
 	    def json = new JsonSlurper().parseText(response.content)
-            testresult = json.result.failedThresholds
+            testthreshold = json.result.failedThresholds
             teststat = json.result.status
             if ( teststat == 'ENDED') break
             }
-	    echo "Test Results :" + testresult
-            if (testresult == 0 ) {
+            if (testthreshold == 0 ) {
                 echo 'Test Passed'
+		testresult = "Blazemeter Test Passed"
             } else {
                 echo 'Test Failed'
+		testresult = "Blazemeter Test Failed"
             }  
            }  
            script {
             // Define Variable
              def USER_INPUT = input(
-                    message: 'Deployment Paused',
+                    message: 'Deployment Paused' + testresult,
                     parameters: [
                             [$class: 'ChoiceParameterDefinition',
                              choices: ['Yes','No'].join('\n'),
