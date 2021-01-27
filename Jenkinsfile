@@ -24,13 +24,14 @@ pipeline {
         "serviceId": ${ServiceID}, 
         "thinkTime": ${MockThinkTime}, 
         "mockServiceTransactions":[{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
-	       echo "these are the credentials " credentialsID
+
 	// Create Mock Service using payload patchOrg
 		    
 	       def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
-              echo "Status: ${response.status}"
+              echo "credentials = "'credentialsID'
+	      echo "Status: ${response.status}"
               echo "Mock Service IDs: ${json.result.id}"
             }
          echo "Prepare Environment - Start Mock Services - Jenkins Build " + BUILD_NUMBER
