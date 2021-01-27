@@ -24,7 +24,7 @@ pipeline {
         "serviceId": ${ServiceID}, 
         "thinkTime": ${MockThinkTime}, 
         "mockServiceTransactions":[{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
-	       echo "these are the credentials 'credentialsID'"
+	       echo "these are the credentials " credentialsID
 	// Create Mock Service using payload patchOrg
 		    
 	       def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
