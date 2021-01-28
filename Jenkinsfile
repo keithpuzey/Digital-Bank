@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 def workspaceID = 348613
 def ServiceID = "1180"
 def MockThinkTime = "0"
-def BMTestID = 8831459
+def BMTestID = 8951028
 
 pipeline {
    agent any
