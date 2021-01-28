@@ -14,7 +14,7 @@ pipeline {
             echo 'Prepare Environment - Create Mock Services'
             script {
 	// KeithP Workspace and VISA Payment Service
-           def payload = """{ "description": "Jenkins Build $BUILD_NUMBER", "endpointPreference": "HTTPS", "harborId": "5c544422c7dc9735767b23ce", "id": 0, "type": "TRANSACTIONAL", "liveSystemHost": "string", "liveSystemPort": 0, "name": "Jenkins Build $BUILD_NUMBER", "noMatchingRequestPreference": "string", "noMatchingRequestTxnId": 0, "serviceId": 1180, "shipId":"5d3ccab3526ad28f53205574" ,"thinkTime": 0, "mockServiceTransactions": [ {"txnId":14928, "priority":9} ]}"""
+           def payload = """{ "description": "Jenkins Build $BUILD_NUMBER", "endpointPreference": "HTTPS", "harborId": "5c544422c7dc9735767b23ce", "id": 0, "type": "TRANSACTIONAL", "liveSystemHost": "string", "liveSystemPort": 0, "name": "Jenkins Build $BUILD_NUMBER", "noMatchingRequestPreference": "string", "noMatchingRequestTxnId": 0, "serviceId": ${ServiceID}, "shipId":"5d3ccab3526ad28f53205574" ,"thinkTime": ${MockThinkTime}, "mockServiceTransactions": [ {"txnId":14928, "priority":9} ]}"""
 	   def patchOrg = """ {"description": "Jenkins Created Mock Service", "harborId":"5c544422c7dc9735767b23ce", "shipId":"5d3ccab3526ad28f53205574", "endpointPreference": "HTTPS",  "name": "Jenkins Build $BUILD_NUMBER", "noMatchingRequestPreference": "return404", "serviceId": ${ServiceID}, "thinkTime": ${MockThinkTime}, "mockServiceTransactions":[{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
 
 	// Create Mock Service using payload patchOrg
