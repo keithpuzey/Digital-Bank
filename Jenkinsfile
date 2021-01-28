@@ -15,15 +15,16 @@ pipeline {
             script {
 	// KeithP Workspace and VISA Payment Service
 	   def patchOrg = """
-                {"description": "Jenkins Created Mock Service", 
-	"harborId":"5c544422c7dc9735767b23ce",
-	"shipId":"5d3ccab3526ad28f53205574",
-        "endpointPreference": "HTTPS", 
-        "name": "Jenkins Build $BUILD_NUMBER", 
-        "noMatchingRequestPreference": "return404", 
-        "serviceId": ${ServiceID}, 
-        "thinkTime": ${MockThinkTime}, 
-        "mockServiceTransactions":[{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
+	   { "description": "string", "endpointPreference": "string", "harborId": "string", "id": 0, "type": "TRANSACTIONAL", "liveSystemHost": "string", "liveSystemPort": 0, "name": "string", "noMatchingRequestPreference": "string", "noMatchingRequestTxnId": 0, "serviceId": 1180, "thinkTime": 0, "mockServiceTransactions": [ {"txnId":14928, "priority":9} ]}"""
+#                {"description": "Jenkins Created Mock Service", 
+#	"harborId":"5c544422c7dc9735767b23ce",
+#	"shipId":"5d3ccab3526ad28f53205574",
+ #       "endpointPreference": "HTTPS", 
+#        "name": "Jenkins Build $BUILD_NUMBER", 
+#        "noMatchingRequestPreference": "return404", 
+#        "serviceId": ${ServiceID}, 
+#        "thinkTime": ${MockThinkTime}, 
+#        "mockServiceTransactions":[{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
 
 	// Create Mock Service using payload patchOrg
 	       def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
