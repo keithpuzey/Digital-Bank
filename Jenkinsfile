@@ -26,7 +26,7 @@ pipeline {
 //        "mockServiceTransactions":[{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
 
 	// Create Mock Service using payload patchOrg
-	       def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: "{ "description": "test", "endpointPreference": "HTTPS", "harborId": "5c544422c7dc9735767b23ce", "id": 0, "type": "TRANSACTIONAL", "liveSystemHost": "string", "liveSystemPort": 0, "name": "my system 443", "noMatchingRequestPreference": "string", "noMatchingRequestTxnId": 0, "serviceId": 1180, "shipId":"5d3ccab3526ad28f53205574" ,"thinkTime": 0, "mockServiceTransactions": [ {"txnId":14928, "priority":9} ]}", url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
+	       def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: """{ "description": "test", "endpointPreference": "HTTPS", "harborId": "5c544422c7dc9735767b23ce", "id": 0, "type": "TRANSACTIONAL", "liveSystemHost": "string", "liveSystemPort": 0, "name": "my system 443", "noMatchingRequestPreference": "string", "noMatchingRequestTxnId": 0, "serviceId": 1180, "shipId":"5d3ccab3526ad28f53205574" ,"thinkTime": 0, "mockServiceTransactions": [ {"txnId":14928, "priority":9} ]}""", url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
                echo "Status: ${response.status}"
