@@ -26,7 +26,7 @@ pipeline {
         "mockServiceTransactions":[{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
 
 	// Create Mock Service using payload patchOrg
-	       def response = httpRequest authentication: '4160b9d2-f82e-482d-9ef6-3c6eecc1631d', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
+	       def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
   	      echo ${response}
@@ -37,7 +37,7 @@ pipeline {
             script {
             // Start Mock Service
 		    
-	    def response = httpRequest authentication: '4160b9d2-f82e-482d-9ef6-3c6eecc1631d', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid + "/deploy"
+	    def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid + "/deploy"
             def json = new JsonSlurper().parseText(response.content)
             // echo "Mock Service Tracking IDs: ${json.result.trackingUrl}"
             }
@@ -47,7 +47,7 @@ pipeline {
 
 	    // Retrieve Status of Mock Service    
 	    
-	    def response = httpRequest authentication: '4160b9d2-f82e-482d-9ef6-3c6eecc1631d', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
+	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
             def json = new JsonSlurper().parseText(response.content)
             mockendpoint = json.result.httpsEndpoint
             mockstat = json.result.status
@@ -62,7 +62,7 @@ pipeline {
 	// Start Blazemeter Test
 	    echo "Start Blazemeter Test"
 		   
-	       def response = httpRequest authentication: '4160b9d2-f82e-482d-9ef6-3c6eecc1631d', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/tests/"+BMTestID+"/Start"
+	       def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/tests/"+BMTestID+"/Start"
                def json = new JsonSlurper().parseText(response.content)
                testsessionid = json.result.sessionsId[0]
 	   }
@@ -70,7 +70,7 @@ pipeline {
             while (true) {
 	    sleep 35
 	    // Check Status of Test    
-	    def response = httpRequest authentication: '4160b9d2-f82e-482d-9ef6-3c6eecc1631d', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/latest/sessions/"+testsessionid
+	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/latest/sessions/"+testsessionid
 	    def json = new JsonSlurper().parseText(response.content)
             testthreshold = json.result.failedThresholds
             teststat = json.result.status
@@ -105,14 +105,14 @@ pipeline {
 
 	    // Delete Mock Service
 		   
-	    def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
+	    def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
             echo "Deleting Mock Service Jenkins Build " + BUILD_NUMBER
             }
             break
             }
         }
 	   script {
-            def response = httpRequest authentication: 'credentialsID', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
+            def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'DELETE', url: "https://mock.blazemeter.com/api/v1/workspaces/" +workspaceID + "/service-mocks/"+ mockid
             echo "Deleting Mock Service Jenkins Build " + BUILD_NUMBER
             }
            }
