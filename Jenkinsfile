@@ -27,7 +27,7 @@ pipeline {
 //        "mockServiceTransactions":[{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
 
 	// Create Mock Service using payload patchOrg
-	       def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: 'payload', url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
+	       def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: payload , url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
                def json = new JsonSlurper().parseText(response.content)
                mockid = json.result.id
                echo "Status: ${response.status}"
