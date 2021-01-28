@@ -14,7 +14,7 @@ pipeline {
             echo 'Prepare Environment - Create Mock Services'
             script {
 	// KeithP Workspace and VISA Payment Service
-	   def patchOrg = """{ "description": "test", "endpointPreference": "HTTPS", "harborId": "5c544422c7dc9735767b23ce", "id": 0, "type": "TRANSACTIONAL", "liveSystemHost": "string", "liveSystemPort": 0, "name": "my system22", "noMatchingRequestPreference": "string", "noMatchingRequestTxnId": 0, "serviceId": 1180, "shipId":"5d3ccab3526ad28f53205574", "thinkTime": 0, "mockServiceTransactions": [ {"txnId":14928, "priority":9} ]}"""
+	   def patchOrg = """{ "description": "test", "endpointPreference": "HTTPS", "harborId": "5c544422c7dc9735767b23ce", "id": 0, "type": "TRANSACTIONAL", "liveSystemHost": "string", "liveSystemPort": 0, "name": "my system 443", "noMatchingRequestPreference": "string", "noMatchingRequestTxnId": 0, "serviceId": 1180, "shipId":"5d3ccab3526ad28f53205574" ,"thinkTime": 0, "mockServiceTransactions": [ {"txnId":14928, "priority":9} ]}"""
 //                {"description": "Jenkins Created Mock Service", 
 //	"harborId":"5c544422c7dc9735767b23ce",
 //	"shipId":"5d3ccab3526ad28f53205574",
