@@ -2,7 +2,6 @@ import groovy.json.JsonSlurper
 
 def account = 291446
 def workspaceID = 348613
-def project = 558525
 def ServiceID = "1180"
 def MockThinkTime = "0"
 def BMTestID = 8951028
@@ -72,10 +71,11 @@ pipeline {
             }
 	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/full?external=false"
 	    def json = new JsonSlurper().parseText(response.content)
-            testresult = json.result.passed
+            projectID = json.result.projectId
+	    testresult = json.result.passed
             if (testresult == true ) {
                 echo 'Test Passed'
-		echo "Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+project+"/masters/"+testmasterid+"/cross-browser-summary"
+		echo "Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID+"/masters/"+testmasterid+"/cross-browser-summary"
 		testresult = "Blazemeter Test Passed"
             } else {
                 echo 'Test Failed '
