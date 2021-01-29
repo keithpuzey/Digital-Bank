@@ -54,12 +54,12 @@ pipeline {
            script {
 	// Start Blazemeter Test
 	    echo "Define Test Data"
-            def datamodel = """{'dependencies': { 'data': { 'kind': 'tdm', 'type': 'object', 'properties': { 'FirstName': { 'type': 'string' }, 'LastName': { 'type': 'string' }, 'EmailAddress': { 'type': 'string' }, 'SSN': { 'type': 'string' }, 'home_phone': { 'type': 'string' }, 'mobile_phone': { 'type': 'string' },
+        //    def datamodel = """{'dependencies': { 'data': { 'kind': 'tdm', 'type': 'object', 'properties': { 'FirstName': { 'type': 'string' }, 'LastName': { 'type': 'string' }, 'EmailAddress': { 'type': 'string' }, 'SSN': { 'type': 'string' }, 'home_phone': { 'type': 'string' }, 'mobile_phone': { 'type': 'string' },
 'work_phone': { 'type': 'string'  }, 'index': { 'type': 'string' }, 'dob': { 'type': 'string' }, 'address': { 'type': 'string' }, 'city': { 'type': 'string' }, 'state': { 'type': 'string' }, 'zip_code': { 'type': 'string' } }, 'requirements': { 'FirstName': 'randlov(0,seedlist('firstnames'))', 'LastName': 'randlov(0, seedlist('lastnames'))', 'EmailAddress': '(randFromSeedlist('firstnames')+'.'+randFromSeedlist('lastnames')+'@gmail.com').replace(/ /g,'.')', 'SSN': 'randDigits(3,3)+'-'+randDigits(2,2)+'-'+randDigits(4,4)', 'home_phone': ''('+randDigits(3,3)+') '+randDigits(3,3)+'-'+randDigits(4,4)', 'mobile_phone': ''('+randDigits(3,3)+') '+randDigits(3,3)+'-'+randDigits(4,4)', 'work_phone': ''('+randDigits(3,3)+') '+randDigits(3,3)+'-'+randDigits(4,4)', 'index': 'randInt(1,100)', 'dob': 'datetime(dateOfBirth(18, 100, now()),'MM/DD/YYYY')', 'address': 'valueFromSeedlist('usaddress-multicol', \${index}, 1)\n', 'city': 'valueFromSeedlist('usaddress-multicol', \${index}, 2) ', 'state': 'valueFromSeedlist('usaddress-multicol', \${index}, 3) ', 'zip_code': 'valueFromSeedlist('usaddress-multicol', \${index}, 4)\n'}}}}"""
       
-	    def dmresponse = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'PUT', url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest
-            def dmjson = new JsonSlurper().parseText(dmresponse.content)
-	    echo "DataModel Response :" + dmjson     
+	  //  def dmresponse = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'PUT', url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest
+          //  def dmjson = new JsonSlurper().parseText(dmresponse.content)
+	  //  echo "DataModel Response :" + dmjson     
 	    echo "Start Blazemeter Test"
 		   
 	     def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest+"/Start"
