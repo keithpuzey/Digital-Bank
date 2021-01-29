@@ -66,8 +66,20 @@ pipeline {
 	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/status?events=false"
 	    def json = new JsonSlurper().parseText(response.content)
             teststat = json.result.status
-            if ( teststat == 'ENDED') break
+	    echo "Test Status = " + teststat
+            if ( teststat == "ENDED") break
             }
+	    // def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/full?external=false"
+	    def json = new JsonSlurper().parseText(response.content)
+            teststat = json.result.status
+            echo "Test response = " + json	    
+            // if (testthreshold == 0 ) {
+            //    echo 'Test Passed'
+	    //	testresult = "Blazemeter Test Passed"
+            // } else {
+            //    echo 'Test Failed '
+	    //	testresult = "Blazemeter Test Failed"
+            // }  
            }  
            script {
             // Define Variable
