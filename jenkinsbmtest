@@ -55,9 +55,9 @@ pipeline {
 	// Start Blazemeter Test
 	    echo "Define Test Data"
         //    echo datamodel
-	    def dmresponse = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'PUT', url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest
-            def dmjson = new JsonSlurper().parseText(dmresponse.content)
-	    echo "DataModel Response :" + dmjson     
+	//    def dmresponse = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'PUT', url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest
+        //    def dmjson = new JsonSlurper().parseText(dmresponse.content)
+	//    echo "DataModel Response :" + dmjson     
 	    echo "Start Blazemeter Test"
 		   
 	     def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest+"/Start"
