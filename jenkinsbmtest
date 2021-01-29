@@ -114,14 +114,14 @@ pipeline {
 "state": "valueFromSeedlist(\"usaddress-multicol\", ${index}, 3) ",
 "zip_code": "valueFromSeedlist(\"usaddress-multicol\", ${index}, 4)\n"
 }"""
-            def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'PUT', requestBody: datamodel , url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest
-            def dmjson = new JsonSlurper().parseText(response.content)
+            def dmresponse = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'PUT', requestBody: datamodel , url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest
+            def dmjson = new JsonSlurper().parseText(dmresponse.content)
 	    echo "DataModel Response :" + dmjson     
 	    echo "Start Blazemeter Test"
 		   
-	       def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest+"/Start"
-               def json = new JsonSlurper().parseText(response.content)
-               testmasterid = json.result.id
+	     def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest+"/Start"
+             def json = new JsonSlurper().parseText(response.content)
+             testmasterid = json.result.id
 	   }
 	    script {
             while (true) {
