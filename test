@@ -1,7 +1,7 @@
            script {
 	// Start Blazemeter Functional Test
 	    echo "Define Test Data"
-	    def datamodel = {"dependencies":{"data":{"kind":"tdm","type":"object","properties":{"FirstName":{"type":"string"},"requirements":{"FirstName":"test"}}}}}
+	    def datamodel = "{"dependencies":{"data":{"kind":"tdm","type":"object","properties":{"FirstName":{"type":"string"},"requirements":{"FirstName":"test"}}}}}"
       	     echo datamodel
             def dmresponse = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'PUT', requestBody: 'datamodel' , url: "https://a.blazemeter.com/api/v4/tests/8969143"
 	   }
