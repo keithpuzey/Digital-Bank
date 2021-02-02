@@ -150,11 +150,11 @@ pipeline {
             testresult = json.result.suiteSummary.definedStatus
             if (testresult == passed ) {
                 echo 'Test Passed'
-		echo "Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectId"+/masters/"+testmasterid+"/cross-browser-summary"
+		echo "Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID"+/masters/"+testmasterid+"/cross-browser-summary"
 		testresult = "Blazemeter Test Passed"
             } else {
                 echo 'Test Failed '
-		"Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"projectId"/masters/"+testmasterid+"/cross-browser-summary"
+		"Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"projectID"/masters/"+testmasterid+"/cross-browser-summary"
 		testresult = "Blazemeter Test Failed"
             }  
            }  
