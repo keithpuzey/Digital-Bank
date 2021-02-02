@@ -141,9 +141,9 @@ pipeline {
 	    echo "End Time = " + endtime
             if ( endtime > 0 ) break
             }
-	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/full?external=false"
-	    def json = new JsonSlurper().parseText(response.content)
-            projectID = json.result.projectId
+	    def projectresponse = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/full?external=false"
+	    def projectjson = new JsonSlurper().parseText(projectresponse.content)
+            projectID = projectjson.result.projectId
 
 	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/test-suite-summary?external=false"
 	    def json = new JsonSlurper().parseText(response.content)
