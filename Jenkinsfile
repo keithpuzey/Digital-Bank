@@ -6,6 +6,8 @@ def MockThinkTime = "0"
 def BMTestID = 8951028
 def BMfunctest = 8969143
 def account = 291446
+def BMfuncsuitetest = 10112353
+
 	
 pipeline {
    agent any
@@ -125,7 +127,7 @@ pipeline {
 	    
 	    echo "Start Blazemeter Functional Test"
 		   
-	     def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/multi-tests/"+BMfunctest+"/start"
+	     def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/multi-tests/"+BMfuncsuitetest+"/start"
              def json = new JsonSlurper().parseText(response.content)
              testmasterid = json.result.id
 	   }
