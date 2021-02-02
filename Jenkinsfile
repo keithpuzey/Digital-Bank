@@ -151,7 +151,7 @@ pipeline {
 		testresult = "Blazemeter Test Suite Passed"
             } else {
                 echo 'Test Failed '
-		"Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID+"/masters/"+testmasterid+"/suite-report"
+		echo "Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID+"/masters/"+testmasterid+"/suite-report"
 		testresult = "Blazemeter Test Suite Failed"
             }  
            }  
