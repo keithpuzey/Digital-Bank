@@ -114,7 +114,7 @@ pipeline {
 		testresult = "Blazemeter Test Passed"
             } else {
                 echo 'Test Failed '
-		"Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+project+"/masters/"+testmasterid+"/cross-browser-summary"
+		"Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID+"/masters/"+testmasterid+"/cross-browser-summary"
 		testresult = "Blazemeter Test Failed"
             }  
            }  
@@ -125,7 +125,7 @@ pipeline {
 	    def dmresponse = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'PUT', requestBody: datamodel , url: "https://a.blazemeter.com/api/v4/tests/"+BMfunctest
             // def dmjson = new JsonSlurper().parseText(dmresponse.content)
 	    
-	    echo "Start Blazemeter Functional Test"
+	    echo "Start Blazemeter Functional Test Suite"
 		   
 	     def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "https://a.blazemeter.com/api/v4/multi-tests/"+BMfuncsuitetest+"/start"
              def json = new JsonSlurper().parseText(response.content)
@@ -135,23 +135,23 @@ pipeline {
             while (true) {
 	    sleep 35
 	    // Check Status of Test    
-	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/full?events=false"
+	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/test-suite-summary"
 	    def json = new JsonSlurper().parseText(response.content)
-            teststat = json.result.status
-	    echo "Test Status = " + teststat
-            if ( teststat == "true"||"false") break
+            endtime = json.result.suiteSummary.ended
+	    echo "End Time = " + endtime
+            if ( endtime > 0 ) break
             }
 	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/full?external=false"
 	    def json = new JsonSlurper().parseText(response.content)
             projectID = json.result.projectId
-	    testresult = json.result.passed
-            if (testresult == true ) {
+	    testresult = json.result.suiteSummary.definedStatus
+            if (testresult == passed ) {
                 echo 'Test Passed'
 		echo "Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID+"/masters/"+testmasterid+"/cross-browser-summary"
 		testresult = "Blazemeter Test Passed"
             } else {
                 echo 'Test Failed '
-		"Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+project+"/masters/"+testmasterid+"/cross-browser-summary"
+		"Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID+"/masters/"+testmasterid+"/cross-browser-summary"
 		testresult = "Blazemeter Test Failed"
             }  
            }  
