@@ -38,7 +38,7 @@ pipeline {
             }
 	    script {
             while (true) {
-	    sleep 35
+	    sleep 60
 
 	    // Retrieve Status of Mock Service    
 	    
@@ -64,7 +64,7 @@ pipeline {
 	   }
 	    script {
             while (true) {
-	    sleep 35
+	    sleep 60
 	    // Check Status of Test    
 	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/latest/sessions/"+testsessionid
 	    def json = new JsonSlurper().parseText(response.content)
@@ -96,7 +96,7 @@ pipeline {
 	   }
 	    script {
             while (true) {
-	    sleep 35
+	    sleep 60
 	    // Check Status of Test    
 	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/status?events=false"
 	    def json = new JsonSlurper().parseText(response.content)
@@ -133,7 +133,7 @@ pipeline {
 	   }
 	    script {
             while (true) {
-	    sleep 35
+	    sleep 60
 	    // Check Status of Test    
 	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/test-suite-summary"
 	    def json = new JsonSlurper().parseText(response.content)
