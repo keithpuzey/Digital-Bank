@@ -141,21 +141,18 @@ pipeline {
 	    echo "End Time = " + endtime
             if ( endtime > 0 ) break
             }
-	    def projectresponse = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/full?external=false"
-	    def projectjson = new JsonSlurper().parseText(projectresponse.content)
-            projectID = projectjson.result.projectId
-
-	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/test-suite-summary?external=false"
-	    def json = new JsonSlurper().parseText(response.content)
-            testresult = json.result.suiteSummary.definedStatus
-            if (testresult == passed ) {
+	    def suiteresponse = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/full?external=false"
+	    def suitejson = new JsonSlurper().parseText(suiteresponse.content)
+            projectID = suitejson.result.projectId
+            testresult = suitejson.result.passed
+            if (testresult == true ) {
                 echo 'Test Passed'
-		echo "Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID"+/masters/"+testmasterid+"/cross-browser-summary"
-		testresult = "Blazemeter Test Passed"
+		echo "Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID"+/masters/"+testmasterid+"/suite-report"
+		testresult = "Blazemeter Test Suite Passed"
             } else {
                 echo 'Test Failed '
-		"Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID+"/masters/"+testmasterid+"/cross-browser-summary"
-		testresult = "Blazemeter Test Failed"
+		"Test details : https://a.blazemeter.com/app/#/accounts/"+account+"/workspaces/"+workspaceID+"/projects/"+projectID+"/masters/"+testmasterid+"/suite-report"
+		testresult = "Blazemeter Test Suite Failed"
             }  
            }  
 
