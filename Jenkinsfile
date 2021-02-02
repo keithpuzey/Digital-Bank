@@ -4,8 +4,9 @@ def workspaceID = 348613
 def ServiceID = "1180"
 def MockThinkTime = "0"
 def BMTestID = 8951028
-def BMfunctest = "8969143"
-
+def BMfunctest = 8969143
+def account = 291446
+	
 pipeline {
    agent any
    stages {
