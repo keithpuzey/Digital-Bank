@@ -139,7 +139,7 @@ pipeline {
 	    def json = new JsonSlurper().parseText(response.content)
             teststat = json.result.status
 	    echo "Test Status = " + teststat
-            if ( teststat == "ENDED") break
+            if ( teststat == "true"||"false") break
             }
 	    def response = httpRequest authentication: 'BMCredentials', acceptType: 'APPLICATION_JSON_UTF8', contentType: 'APPLICATION_JSON', httpMode: 'GET', url: "https://a.blazemeter.com:443/api/v4/masters/"+testmasterid+"/full?external=false"
 	    def json = new JsonSlurper().parseText(response.content)
