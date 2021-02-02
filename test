@@ -10,7 +10,7 @@ def toJson = {
       	// echo patchOrg
 	// echo authentication: 'BMCredentials', customHeaders: [[name: 'Accept', value: '*/*']], contentType: 'APPLICATION_JSON', httpMode: 'PUT', requestBody: patchOrg , url: https://a.blazemeter.com/api/v4/tests/8969143
 	
-	def dmresponse = httpRequest authentication: 'BMCredentials', customHeaders: [[name: 'Accept', value: '*/*']], contentType: 'APPLICATION_JSON', httpMode: 'PUT', requestBody: patchOrg , url: https://a.blazemeter.com/api/v4/tests/8969143
+	def dmresponse = httpRequest authentication: 'BMCredentials', customHeaders: [[name: 'Accept', value: '*/*']], contentType: 'APPLICATION_JSON', httpMode: 'PUT', requestBody: patchOrg , url: 'https://a.blazemeter.com/api/v4/tests/8969143'
         // def dmresponse = bat(script: "c:\Program Files\Git\mingw64\bin\curl.exe" -X PUT -u 95c533ba1f5890ea027af301:913a87b2d34a4bc3fa0242c532539eec28dfc5484b393494e94499b6bedaa29db560a00d -H "Content-Type: application/json" -d patchOrg "https://a.blazemeter.com/api/v4/tests/8969143", returnStdout: true)
 	// bat (script: c:\temp\test.bat)
 
