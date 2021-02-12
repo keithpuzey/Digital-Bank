@@ -18,7 +18,7 @@ pipeline {
             echo 'Prepare Environment - Create Mock Services'
             script {
 	// KeithP Workspace and VISA Payment Service
-           def payload = """{ "description": "Jenkins Build $BUILD_NUMBER", "endpointPreference": "HTTPS", "harborId": "5c544422c7dc9735767b23ce", "id": 0, "type": "TRANSACTIONAL", "liveSystemHost": "string", "liveSystemPort": 0, "name": "Jenkins Build $BUILD_NUMBER", "noMatchingRequestPreference": "string", "noMatchingRequestTxnId": 0, "serviceId": ${ServiceID}, "shipId":"5d3ccab3526ad28f53205574" ,"thinkTime": ${MockThinkTime}, "mockServiceTransactions": [{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
+           def payload = """{ "description": "Jenkins Build $BUILD_NUMBER", "endpointPreference": "HTTPS", "harborId": "5c544422c7dc9735767b23ce","type": "TRANSACTIONAL", "liveSystemHost": "null", "liveSystemPort": "null", "name": "Jenkins Build $BUILD_NUMBER", "serviceId": ${ServiceID}, "shipId":"5d3ccab3526ad28f53205574" ,"thinkTime": ${MockThinkTime}, "mockServiceTransactions": [{"txnId":9500,"priority":10},{"txnId":9501,"priority":10},{"txnId":9502,"priority":10}]}"""
 
 	// Create Mock Service using payload patchOrg
 	       def response = httpRequest authentication: 'BMCredentials', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: payload , url: "https://mock.blazemeter.com/api/v1/workspaces/" + workspaceID + "/service-mocks"
