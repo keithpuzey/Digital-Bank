@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 def workspaceID = 348613
 def ServiceID = "1180"
 def MockThinkTime = "0"
-def BMTestID = 9662943
+def BMTestID = 9676941
 def BMfunctest = 8969143
 def account = 291446
 def BMfuncsuitetest = 10112353
