@@ -17,11 +17,7 @@
 	</parent>
 
 	<repositories>
-		<repository>
-			<id>bintray-ca-sv</id>
-			<name>bintray-ca</name>
-			<url>https://dl.bintray.com/ca/sv/</url>
-		</repository>
+
 	</repositories>
 
 	<properties>
@@ -274,13 +270,7 @@
     		<scope>test</scope>
 		</dependency>
 
-		<!-- CodeSV public build -->
-		<dependency>
-			<groupId>com.broadcom.codesv</groupId>
-			<artifactId>codesv-dist-jar</artifactId>
-			<version>2.0.8</version>
-			<scope>test</scope>
-		</dependency>
+
 
 	</dependencies>
 	

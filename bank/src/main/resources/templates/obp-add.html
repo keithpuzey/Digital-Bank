@@ -42,11 +42,28 @@
 	                   					
 		                      			<div class="row form-group">
 		    								<div class="col col-sm-4">
+<<<<<<< HEAD:bank/src/main/resources/templates/obp-add.html
 					                            <label class=" form-control-label"><strong>Open Banking Providers</strong></label>
 				                            	<select class="form-control" id="bankId" name="bankId" required>
 				                            		<option class="text-light"value="">---------- Select Provider -----------</option>
 				                              	  	<option th:each="bank : ${bankList}" th:selected="${bank.id == bankId}" th:text="${bank.full_name}" th:value="${bank.id}"></option>
 				            					 </select>
+=======
+					                            <label class=" form-control-label"><strong>From Account</strong></label>
+				                            	<select class="form-control" id="fromAccount" name="fromAccount" required>
+				                            		<option class="text-light"value="">---------- Select Account -----------</option>
+				                              		<option th:each="acct : ${accountList}" th:selected="${acct.id == fromAccount}" th:text="|${acct.name}  -  (${acct.AccountType.name})|" th:value="${acct.id}"></option>
+				            					</select>
+					                        </div>
+					                   	</div>
+					                   	<div class="row form-group">
+		    								<div class="col col-sm-4">
+					                            <label class=" form-control-label"><strong>To Account</strong></label>
+				                            	<select class="form-control" id="toAccount" name="toAccount" required>
+				                            		<option class="text-light"value="">---------- Select Account -----------</option>
+				                              		<option th:each="acct : ${accountList}" th:selected="${acct.id == toAccount}" th:text="|${acct.name}  -  (${acct.AccountType.name})|" th:value="${acct.id}"></option>
+				            					</select>
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/resources/templates/xfer-between.html
 					                        </div>
 					                   	</div>
 

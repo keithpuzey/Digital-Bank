@@ -36,6 +36,68 @@
                             <li><i class="fa fa-plus-square"></i><a id="new-savings-menu-item" th:href="@{/account/savings-add}">New Savings</a></li>
                         </ul>
                     </li>
+<<<<<<< HEAD:bank/src/main/resources/templates/common/menus.html
+=======
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Transactions</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-sign-in"></i><a th:href="@{/account/deposit}">Deposit</a></li>
+                        </ul>
+                    </li>
+             <!--         <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Checks</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa ti-hand-stop"></i><a th:href="@{/home}">Stop Payment</a></li>
+                            <li><i class="fa fa-spinner"></i><a th:href="@{/home}">Reorder Checks</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart-o"></i>Reporting</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-file-text"></i><a th:href="@{/home}">eStatements</a></li>
+                            <li><i class="menu-icon fa fa-tachometer"></i><a th:href="@{/home}">Account Reporting</a></li>
+                        </ul>
+                    </li>
+			-->
+                    <h3 class="menu-title">Transfers/Payments</h3><!-- /.menu-title -->
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-random"></i>Transfer</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-chain"></i><a th:href="@{/account/xfer-between}">Between Accounts</a></li>
+                        </ul>
+                    </li>
+                    
+                    <h3 class="menu-title">3rd Party/Transfers</h3><!-- /.menu-title -->
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-random"></i>Visa Direct</a>
+                        <ul class="sub-menu children dropdown-menu">
+							<li><i class="menu-icon fa fa-chain"></i><a th:href="@{/account/xfer-visa}">Visa Transfer</a></li>
+                        </ul>
+                    </li>
+            <!--         <li>
+                        <a th:href="@{/home}"> <i class="menu-icon fa fa-stack-exchange"></i>Loans </a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-money"></i>External Transfers</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-line-chart"></i><a th:href="@{/home}">Money Market</a></li>
+                            <li><i class="menu-icon fa fa-area-chart"></i><a th:href="@{/home}">Business</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>People</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-user"></i><a th:href="@{/home}">Person</a></li>
+                            <li><i class="menu-icon fa fa-group"></i><a th:href="@{/home}">Member</a></li>
+                        </ul>
+                    </li>
+           -->          
+           			<h3 class="menu-title" th:if="${creditEnabled}">Credit Accounts</h3><!-- /.menu-title -->
+
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/resources/templates/common/menus.html
                     <li class="menu-item-has-children dropdown" th:if="${creditEnabled}">
                         <a href="#" id="credit-menu" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-credit-card"></i>Credit</a>
                         <ul class="sub-menu children dropdown-menu" th:if="${creditNewApp}">

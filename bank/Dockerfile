@@ -1,4 +1,4 @@
-FROM tomcat:9.0.48-jdk11-adoptopenjdk-hotspot
+FROM tomcat:jdk11-adoptopenjdk-hotspot
 EXPOSE 8080
 EXPOSE 8443
 COPY /target/bank##2.1.0.12.war /usr/local/tomcat/webapps/

@@ -74,6 +74,8 @@ public class Constants {
 	public static final String URI_DEPOSIT				= "/deposit";
 	public static final String URI_WITHDRAW				= "/withdraw";
 	public static final String URI_XFER_BETWEEN			= "/xfer-between";
+	public static final String URI_XFER_VALIDATE		= "/xfer-validate";
+	public static final String URI_XFER_VISA		= "/xfer-visa";
 	public static final String URI_CREDIT				= "/credit";
 	public static final String URI_CREDIT_APP			= "/credit-app";
 	public static final String URI_CREDIT_APP_STATUS	= "/credit-app-status";
@@ -81,6 +83,7 @@ public class Constants {
 	public static final String URI_CREDIT_DELETE		= "/credit-delete";
 	public static final String URI_SEARCH				= "/search";
 	public static final String URI_SEARCH_ATM			= "/atm";
+<<<<<<< HEAD:bank/src/main/java/io/digisic/bank/util/Constants.java
 	public static final String URI_OBP					= "/obp";
 	public static final String URI_OBP_ADD				= "/obp-add";
 	public static final String URI_OBP_ADD_ACCT			= "/obp-add-acct";
@@ -91,6 +94,9 @@ public class Constants {
 	public static final String URI_XFER_EXTERNAL		= "/external";
 	public static final String URI_XFER_VISA_PROC		= "/xfer-visa-process";
 	public static final String URI_XFER_VISA			= "/xfer-visa";
+=======
+	public static final String URI_SEARCH_VISA			= "/visa";
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/java/io/demo/bank/util/Constants.java
 	
 	// API Authenticated URIs
 	public static final String URI_API_ALL				= "/api/**";
@@ -135,6 +141,7 @@ public class Constants {
 	public static final String URI_API_DATA_ACCT_TRAN_CT= "/api/v1/data/account/transaction/category";
 	public static final String URI_API_PROMO			= "/api/v1/promotions";
 	public static final String URI_API_SEARCH_ATM		= "/api/v1/search/atm";
+<<<<<<< HEAD:bank/src/main/java/io/digisic/bank/util/Constants.java
 	public static final String URI_API_HEALTHCHECK		= "/api/v1/health";
 	public static final String URI_API_CREDIT_APP_ALL	= "/api/v1/credit/references";
 	public static final String URI_API_CREDIT_APP		= "/api/v1/credit/reference";
@@ -144,6 +151,9 @@ public class Constants {
 	public static final String URI_API_CREDIT_ACCT_ID_TRANS = "/api/v1/credit/account/{id}/transactions";
 
 	
+=======
+	public static final String URI_API_SEARCH_VISA		= "/api/v1/search/visa";
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/java/io/demo/bank/util/Constants.java
 	
 
 	
@@ -166,11 +176,14 @@ public class Constants {
 	public static final String VIEW_DEPOSIT 		= "deposit";
 	public static final String VIEW_WITHDRAW 		= "withdraw";
 	public static final String VIEW_XFER_BETWEEN 	= "xfer-between";
+	public static final String VIEW_XFER_VALIDATE 	= "xfer-validate";
+	public static final String VIEW_XFER_VISA 		= "xfer-visa";
 	public static final String VIEW_CREDIT_APP 		= "credit-app";
 	public static final String VIEW_CREDIT_APP_ST 	= "credit-app-status";
 	public static final String VIEW_CREDIT_VIEW 	= "credit-view";
 	public static final String VIEW_PROMOTIONS		= "promotions";
 	public static final String VIEW_SEARCH			= "search";
+<<<<<<< HEAD:bank/src/main/java/io/digisic/bank/util/Constants.java
 	public static final String VIEW_OBP_ADD 		= "obp-add";
 	public static final String VIEW_OBP_ADD_ACCT 	= "obp-add-acct";
 	public static final String VIEW_OBP_VIEW 		= "obp-view";
@@ -178,6 +191,9 @@ public class Constants {
 	// Visa Service views
 	public static final String VIEW_XFER_VISA 		= "xfer-visa";
 	public static final String VIEW_XFER_VISA_PROC	= "xfer-visa-process";
+=======
+	public static final String VIEW_VISASEARCH		= "visasearch";
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/java/io/demo/bank/util/Constants.java
 	
 	// Account Type Codes
 	public static final String ACCT_CHK_STD_CODE	= "SCK";
@@ -276,6 +292,7 @@ public class Constants {
 																	+ " Expect a response from the credit provider shortly.";
 	
 	// Application Properties
+<<<<<<< HEAD:bank/src/main/java/io/digisic/bank/util/Constants.java
 	public static final String APP_CREDIT_ENABLED					= "io.digisic.credit.enabled";
 	public static final String APP_CREDIT_PROTOCOL					= "io.digisic.credit.protocol";
 	public static final String APP_CREDIT_HOST						= "io.digisic.credit.host";
@@ -295,6 +312,20 @@ public class Constants {
 	public static final String APP_OBP_PORT							= "io.digisic.bank.obp.port";
 	public static final String APP_OBP_VERSION						= "io.digisic.bank.obp.version";
 	public static final String APP_OBP_CONSUMER_KEY					= "io.digisic.bank.obp.consumer_key";
+=======
+	public static final String APP_CREDIT_ENABLED					= "io.demo.credit.enabled";
+	public static final String APP_CREDIT_PROTOCOL					= "io.demo.credit.protocol";
+	public static final String APP_CREDIT_HOST						= "io.demo.credit.host";
+	public static final String APP_CREDIT_PORT						= "io.demo.credit.port";
+	public static final String APP_CREDIT_USER						= "io.demo.credit.username";
+	public static final String APP_CREDIT_PASSWORD					= "io.demo.credit.password";
+	public static final String APP_ATM_PROTOCOL						= "io.demo.bank.atm.protocol";
+	public static final String APP_ATM_HOST							= "io.demo.bank.atm.host";
+	public static final String APP_ATM_PORT							= "io.demo.bank.atm.port";
+	public static final String APP_VISA_PROTOCOL					= "io.demo.bank.visa.protocol";
+	public static final String APP_VISA_HOST						= "io.demo.bank.visa.host";
+	public static final String APP_VISA_PORT						= "io.demo.bank.visa.port";
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/java/io/demo/bank/util/Constants.java
 	
 	// Credit API URIs
 	public static final String APP_CREDIT_URI_API_BASE				= "/api/v1";	
@@ -306,6 +337,7 @@ public class Constants {
 	// ATM Location Service API URI
 	public static final String APP_ATM_URI_API_BASE					= "/v3.1/nodes/atms";
 	
+<<<<<<< HEAD:bank/src/main/java/io/digisic/bank/util/Constants.java
 	// Visa API Service
 	public static final String URI_API_EXTERNAL_VISA				= "/api/v1/external/visa";
 	public static final String APP_VISA_URI_API_BASE				= "/visadirect/fundstransfer/v1/pullfundstransactions";
@@ -325,5 +357,11 @@ public class Constants {
 	public static final String URI_OBP_API_BANK_ACCOUNT				= "/banks/{0}/accounts/{1}/account";
 	public static final String URI_OBP_API_BANK_ACCOUNT_TRANS		= "/banks/{0}/accounts/{1}/transactions";
 
+=======
+	// VISA Service API URI
+	public static final String APP_VISA_URI_API_BASE				= "/visadirect/fundstransfer/v1/pullfundstransactions";
+	
+	
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/java/io/demo/bank/util/Constants.java
 	
 }

@@ -100,7 +100,9 @@ abstract class WebCommonController {
 	// model attribute constants -> Search
 	public static final String MODEL_SEARCH_ZIPCODE				= "zipcode";
 	public static final String MODEL_ATT_PATTERN_ZIPCODE		= "patternZip";
+	public static final String MODEL_ATT_PATTERN_VISAACCOUNT	= "patternvisa";
 	public static final String MODEL_ATT_ATM_LIST				= "atmList";
+<<<<<<< HEAD:bank/src/main/java/io/digisic/bank/controller/web/WebCommonController.java
 	
 	// Chart Data 
 	public static final String MODEL_ATT_CHART_ACCT_BAL			= "accountBalanceSummary";
@@ -126,6 +128,9 @@ abstract class WebCommonController {
 	public static final String MODEL_OBP_DELETE_ID				= "deleteId";
 	
 	
+=======
+	public static final String MODEL_SEARCH_AMOUNT				= "amount";
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/java/io/demo/bank/controller/web/WebCommonController.java
 
 	/*
 	 * Sets display defaults for Authenticated user
@@ -161,6 +166,7 @@ abstract class WebCommonController {
 		
 		// Add ATM Location Service
 		model.addAttribute(MODEL_ATT_PATTERN_ZIPCODE, Patterns.US_ZIPCODE);
+		model.addAttribute(MODEL_ATT_PATTERN_VISAACCOUNT, Patterns.VISA_ACCOUNT);
 		
 		// Check to see if we should enable the Credit Menu
 		if (ccService.isCreditServiceEnabled() && ccService.checkCreditConnection()) {

@@ -25,6 +25,7 @@
 	                <div class="row">				
 		    			<div class="col-lg-12">
 	                    	<div class="card">
+<<<<<<< HEAD:bank/src/main/resources/templates/obp-add-acct.html
                       			<div class="card-header bg-flat-color-1">
                         			<strong class="card-title text-white">Add Open Banking Account</strong>
                       			</div>
@@ -70,6 +71,35 @@
     
 	<!-- Footer -->
 	<div th:replace="common/sections :: footer-scripts"></div>
+=======
+                      			<div class="card-header">
+                        			<strong>Transfer Between Banks</strong>
+                      			</div>
+                     			
+                     			<form>
+        Keyword:<br>
+        <input type="text" name="Account Number" onkeyup="callREST()"><br>
+    </form>
+    <div id="response"></div>
+<h1>The XMLHttpRequest Object</h1>
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/resources/templates/withdraw.html
 
+<button type="button" onclick="loadDoc()">Transfer From Visa</button>
+
+<p id="demo"></p>
+ 
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "https://accountpayment274-8080-ns-bzctjenkins.crane.blazemeter.net/visadirect/fundstransfer/v1/pullfundstransactions", true);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send("fname=Henry&lname=Ford");
+}
+</script>
 </body>
 </html>

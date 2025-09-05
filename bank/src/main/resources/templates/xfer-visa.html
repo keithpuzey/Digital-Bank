@@ -2,8 +2,14 @@
 
 <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
 
+<<<<<<< HEAD:bank/src/main/resources/templates/xfer-visa.html
 <head th:replace="common/sections :: header-css"/>
 
+=======
+<head th:replace="common/sections :: header-css"/> </head>
+<script type="text/javascript" id="ca_eum_ba" src="https://dxc.dxi-na1.saas.broadcom.com/api/1/urn:ca:tenantId:D1523B56-B8D9-43CC-AACC-39FD7F108BDA/urn:ca:appId:Digital Bank Demo System/bajs?agent=browser" data-profileUrl="https://dxc.dxi-na1.saas.broadcom.com/api/1/urn:ca:tenantId:D1523B56-B8D9-43CC-AACC-39FD7F108BDA/urn:ca:appId:Digital Bank Demo System/profile?agent=browser" data-tenantID="D1523B56-B8D9-43CC-AACC-39FD7F108BDA" data-appID="Digital Bank Demo System" data-appKey="a76c4a90-b36d-11e9-a152-5ffbe7af658e" async ></script>
+</head>
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/resources/templates/xfer-visa.html
 <body>
 
 
@@ -15,17 +21,27 @@
 	
 		<header th:replace="common/menus :: rp-header"/>
 		
+<<<<<<< HEAD:bank/src/main/resources/templates/xfer-visa.html
 		<div th:replace="common/menus :: rp-breadcrumbs (pageTitle='VISA Transfer')"/>
+=======
+		<div th:replace="common/menus :: rp-breadcrumbs"/>
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/resources/templates/xfer-visa.html
     
     	<!-- Page Content Begin -->
     
 	    	<div class="content mt-3">
 	            <div class="animated fadeIn">
 	                
+<<<<<<< HEAD:bank/src/main/resources/templates/xfer-visa.html
+=======
+	              
+	               
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/resources/templates/xfer-visa.html
 	            	<div class="row">
                   		<div class="col-lg-12">
                     		<div class="card">
                         		<div class="card-header bg-flat-color-1">
+<<<<<<< HEAD:bank/src/main/resources/templates/xfer-visa.html
                             		<strong class="card-title text-white">Direct Payment to VISA</strong>
                         		</div>
 					
@@ -56,6 +72,36 @@
 	                     				</div> <!-- End Card Footer -->	
                             		</form>
                      		
+=======
+                            		<strong class="text-white card-title">Direct Payment to VISA</strong>
+                        		</div>
+					<hr>
+								<form class="search-form" th:action="@{/search/visa}" method="post">
+                             		<div class="form-group">
+	                            		<label for="visaaccount" class="form-control-label"><strong>VISA Account Number</strong></label> 
+                               		<select name="zipcode">
+	                                	<option class="text-light"value="">---------- Select Account -----------</option>
+  										<option value="ABCD1234ABCD123">------ Account Ending in 123  ------</option>
+  										<option value="ABCD1234ABCD456">------ Account Ending in 456  ------</option>
+  									</select>
+  									</div>
+	                               <div class="row form-group">
+		                        	<div class="col col-sm-4">
+					                	<label class="form-control-label"><strong>Transfer Amount</strong></label>
+					                	<input id="visaamount" name="visaamount" type="text" class="form-control" th:field="${transaction.amount}" required th:pattern="${patternTransactionAmount}">
+					                	<small class="form-text text-muted">Amount to be transferred to VISA account</small>
+					                 </div>
+		                        	</div>
+								<div class="card-footer">
+		                     	    	<button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-dot-circle-o"></i> Submit to VISA</button>
+		                     	</div> <!-- End Card Footer -->	
+                            	</form>
+                        	</div>
+
+ 
+                      	</div> <!-- End Card Body -->
+                     		</form>
+>>>>>>> 5dc1f9a06974b3a3823560ebb1f18caf8ef0cc65:src/main/resources/templates/xfer-visa.html
                     		</div> <!-- End Card -->
                  		</div> <!-- End Column-->
                 	</div> <!-- End Row -->
