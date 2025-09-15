@@ -47,6 +47,10 @@ public class Messages {
 	public static final String USER_TITLE_REQUIRED		= "Title is required.";
 	public static final String USER_GENDER_FORMAT		= "Gender must be either 'M' or 'F'.";
 	public static final String USER_GENDER_REQUIRED		= "Gender is required.";
+	public static final String USER_OCCUPATION_REQUIRED = "Occupation is required";
+    public static final String USER_GDPR_ACCEPT_REQUIRED = "You must accept GDPR policy";
+	
+	
 	public static final String USER_DOB_REQUIRED		= "Date of Birth is required.";
 	public static final String USER_PHONE_HOME_FORMAT	= "Home Phone Number must be a valid phone number format. i.e. (###) ###-####.";
 	public static final String USER_PHONE_HOME_REQUIRED	= "Home Phone is required.";

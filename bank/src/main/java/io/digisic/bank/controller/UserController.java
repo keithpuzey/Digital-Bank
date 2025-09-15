@@ -420,6 +420,8 @@ public class UserController extends CommonController{
 		profile.setLastName(uup.getLastName());
 		profile.setTitle(uup.getTitle());
 		profile.setGender(uup.getGender());
+        profile.setOccupation(uup.getOccupation());
+        profile.setGdprAccepted(uup.getGdprAccepted());
 		profile.setHomePhone(uup.getHomePhone());
 		profile.setMobilePhone(uup.getMobilePhone());
 		profile.setWorkPhone(uup.getWorkPhone());
@@ -458,6 +460,8 @@ public class UserController extends CommonController{
 			return dob;
 		}
 
+
+
 		public String getPassword() {
 			return password;
 		}
@@ -491,6 +495,17 @@ public class UserController extends CommonController{
 		@NotEmpty (message=Messages.USER_GENDER_REQUIRED)
 		@Pattern(regexp=Patterns.USER_GENDER, message=Messages.USER_GENDER_FORMAT)
 		private String gender;
+		
+        @NotEmpty(message = Messages.USER_OCCUPATION_REQUIRED)
+        private String occupation;
+
+        @NotNull(message = Messages.USER_GDPR_ACCEPT_REQUIRED)
+        private Boolean gdprAccepted;
+
+        public String getOccupation() { return occupation; }
+        public Boolean getGdprAccepted() { return gdprAccepted; }
+        
+	
 		
 		@NotEmpty (message=Messages.USER_PHONE_HOME_REQUIRED)
 		@Pattern(regexp=Patterns.USER_PHONE_REQ, message=Messages.USER_PHONE_HOME_FORMAT)

@@ -71,6 +71,13 @@
                         <input type="hidden" id="gender" name="gender" th:field="${userProfile.gender}">
                         <input type="hidden" id="ssn" name="ssn" th:field="${userProfile.ssn}">
                         <input type="hidden" id="dob" name="dob" th:field="${userProfile.dob}">
+                        <input type="hidden" id="occupation" name="occupation" th:field="${userProfile.occupation}">
+                        <div class="checkboxgdpr">
+                            <label>
+                                <input type="checkbox" name="gdprAccepted" id="gdprAccepted" required="required"><strong> Agree to gdpr </strong>
+                            </label>
+                        </div>
+                        
                         <input type="hidden" id="emailAddress" name="emailAddress" th:field="${userProfile.emailAddress}">
                         <input type="hidden" id="username" name="username" th:field="${user.username}">
                         <input type="hidden" id="password" name="password" th:field="${user.password}">

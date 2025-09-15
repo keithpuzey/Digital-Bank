@@ -107,6 +107,7 @@ public class UserProfile {
 
 
 
+
 	/**
 	 * @return the firstName
 	 */
@@ -176,6 +177,40 @@ public class UserProfile {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
+
+	/**
+	 * @return the occupation
+	 */
+	public String getOccupation() {
+		return occupation;
+	}
+
+
+
+	/**
+	 * @param occupation the occupation to set
+	 */
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
+	/**
+	 * @return the gdpr
+	 */
+	public String getGdpr() {
+		return gdpr;
+	}
+
+
+
+	/**
+	 * @param gdpr the gdpr to set
+	 */
+	public void setGdpr(String gdpr) {
+		this.gdpr = gdpr;
+	}
+
 
 
 
@@ -407,6 +442,8 @@ public class UserProfile {
 	    userProfile += "\nSSN:\t\t\t" 			+ this.getSsn();
 	    userProfile += "\nDOB:\t\t\t" 			+ this.getDob();
 	    userProfile += "\nGender:\t\t\t" 		+ this.getGender();
+	    userProfile += "\nOccupation:\t\t\t"    + this.get.Occupation;
+	    userProfile += "\nGdpr:\t\t\t"          + this.get.Gdpr;
 	    userProfile += "\nHome Phone:\t\t" 		+ this.getHomePhone();
 	    userProfile += "\nMobile Phone:\t\t" 	+ this.getMobilePhone();
 	    userProfile += "\nWork Phone:\t\t" 		+ this.getWorkPhone();
