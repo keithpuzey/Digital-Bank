@@ -40,6 +40,18 @@ public class UserProfile {
 	@Pattern(regexp=Patterns.USER_GENDER, message=Messages.USER_GENDER_FORMAT)
 	private String gender;
 	
+		
+    @NotEmpty(message = Messages.USER_OCCUPATION_REQUIRED)
+    private String occupation;
+
+    @NotNull(message = Messages.USER_GDPR_ACCEPT_REQUIRED)
+    private Boolean gdprAccepted;
+
+    public String getOccupation() { return occupation; }
+    public Boolean getGdprAccepted() { return gdprAccepted; }
+	
+	
+	
 	@NotEmpty (message=Messages.USER_SSN_REQUIRED)
 	@Pattern(regexp=Patterns.USER_SSN, message=Messages.USER_SSN_FORMAT)
 	@Column(nullable=false, unique=true)
