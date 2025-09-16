@@ -90,6 +90,18 @@
 						                </div>
 						                <div class="row form-group">
 						                	<div class="col col-sm-4">
+
+						                    	<label><strong>Occupation</strong></label>
+						                        <input type="text" class="form-control" id="occupation" th:field="${userProfile.occupation}" required>
+						                    	<small class="form-text text-muted">ex. Doctor</small>
+						                  	</div>
+						                    <div class="col col-sm-4">
+						                        <label><strong>Accepted GDPR</strong></label>
+						                        <input type="text" class="form-control" id="gdprAccepted" th:field="${userProfile.gdprAccepted}" required>
+						                       	<small class="form-text text-muted">ex.</small>
+						                    </div>
+						                    
+                        
 						                    	<label><strong>Locality</strong></label>
 						                        <input type="text" class="form-control" id="locality" th:field="${userProfile.locality}" required>
 						                    	<small class="form-text text-muted">ex. Internet City</small>
